@@ -20,3 +20,31 @@ with sr.Microphone() as source:
     print("Translation using the 'translatepy' library:", text_trans)
 
   
+
+#text to text 
+from googletrans import Translator
+
+def translate_to_hindi(text):
+    try:
+        # Create a Translator object
+        translator = Translator()
+
+        # Translate the text to Hindi
+        translated_text = translator.translate(text, src='en', dest='hi')
+
+        # Return the translated text
+        return translated_text.text
+
+    except Exception as e:
+        return str(e)
+
+if __name__ == "__main__":
+    # Input English text
+    english_text = "my name is manav"
+
+    # Translate the text to Hindi
+    hindi_text = translate_to_hindi(english_text)
+
+    # Print the translated text
+    print("English:", english_text)
+    print("Hindi:", hindi_text)
